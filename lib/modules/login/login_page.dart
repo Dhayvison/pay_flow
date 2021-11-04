@@ -24,13 +24,24 @@ class _LoginPageState extends State<LoginPage> {
           Stack(
             children: [
               Container(
-                color: AppColors.primary,
                 height: _screen.height * AppSizing.goldenPercentualComplement,
+                decoration: BoxDecoration(
+                    gradient: RadialGradient(
+                        colors: [AppColors.shape, AppColors.primary])),
               ),
               Center(
-                child: Image.asset(
-                  AppImages.person,
-                  height: _screen.height * AppSizing.goldenPercentualComplement,
+                child: Stack(
+                  children: [
+                    Image.asset(
+                      AppImages.person,
+                      height:
+                          _screen.height * AppSizing.goldenPercentualComplement,
+                    ),
+                    Positioned(
+                      child: LinearBottomGradient(screen: _screen),
+                      bottom: -1,
+                    )
+                  ],
                 ),
                 heightFactor: AppSizing.goldenRatioComplement,
               ),
@@ -55,6 +66,33 @@ class _LoginPageState extends State<LoginPage> {
           )
         ],
       ),
+    );
+  }
+}
+
+class LinearBottomGradient extends StatelessWidget {
+  const LinearBottomGradient({
+    Key? key,
+    required Size screen,
+  })  : _screen = screen,
+        super(key: key);
+
+  final Size _screen;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: _screen.width,
+      height: 50,
+      decoration: BoxDecoration(
+          gradient: LinearGradient(
+        colors: [
+          AppColors.background,
+          const Color(0x00FFFFFF),
+        ],
+        begin: Alignment.bottomCenter,
+        end: Alignment.topCenter,
+      )),
     );
   }
 }
