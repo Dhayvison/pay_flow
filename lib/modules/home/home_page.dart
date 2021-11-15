@@ -1,10 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:pay_flow/modules/home/home_controller.dart';
 import 'package:pay_flow/shared/themes/app_colors.dart';
 import 'package:pay_flow/shared/themes/app_text_styles.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final homeController = HomeController();
+  final pages = [
+    Container(
+      color: AppColors.stroke,
+      child: const Center(
+        child: Text("Home"),
+      ),
+    ),
+    Container(
+      color: AppColors.shape,
+      child: const Center(
+        child: Text("Description"),
+      ),
+    ),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,20 +58,27 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
+      body: pages[homeController.currentPage],
       bottomNavigationBar: Container(
-        padding: const EdgeInsets.only(bottom: 10),
+        padding: const EdgeInsets.only(top: 4, bottom: 4),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                homeController.setPage(0);
+                setState(() {});
+              },
               icon: const Icon(
                 Icons.home,
-                color: AppColors.primary,
+                color: AppColors.body,
               ),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                homeController.setPage(1);
+                setState(() {});
+              },
               icon: const Icon(Icons.description, color: AppColors.body),
             ),
           ],
