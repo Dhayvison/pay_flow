@@ -3,6 +3,7 @@ import 'package:pay_flow/shared/themes/app_colors.dart';
 import 'package:pay_flow/shared/themes/app_images.dart';
 import 'package:pay_flow/shared/themes/app_sizing.dart';
 import 'package:pay_flow/shared/themes/app_text_styles.dart';
+import 'package:pay_flow/shared/widgets/vertical_divider_widget/vertical_divider_widget.dart';
 
 class SocialLoginButton extends StatelessWidget {
   final VoidCallback onTap;
@@ -19,10 +20,8 @@ class SocialLoginButton extends StatelessWidget {
         child: Row(
           children: [
             Image.asset(AppImages.google),
-            Container(
+            const VerticalDividerWidget(
               height: 56,
-              color: AppColors.stroke,
-              width: 1,
             ),
             Text(
               'Entrar com Google',
