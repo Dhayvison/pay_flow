@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pay_flow/app_routes.dart';
 import 'package:pay_flow/shared/models/user_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -13,10 +14,10 @@ class AuthController {
     if (user != null) {
       _user = user;
       saveUser(user);
-      Navigator.pushReplacementNamed(context, '/home');
+      Navigator.pushReplacementNamed(context, AppRoutes.homePage);
     } else {
       deleteUser();
-      Navigator.pushReplacementNamed(context, '/login');
+      Navigator.pushReplacementNamed(context, AppRoutes.loginPage);
     }
   }
 
