@@ -27,7 +27,7 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               Container(
                 height: _screen.height * AppSizing.goldenPercentualComplement,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     gradient: RadialGradient(
                         colors: [AppColors.shape, AppColors.primary])),
               ),
@@ -84,11 +84,11 @@ class LinearBottomGradient extends StatelessWidget {
     return Container(
       width: _screen.width,
       height: 50,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           gradient: LinearGradient(
         colors: [
           AppColors.background,
-          const Color(0x00FFFFFF),
+          Color(0x00FFFFFF),
         ],
         begin: Alignment.bottomCenter,
         end: Alignment.topCenter,
