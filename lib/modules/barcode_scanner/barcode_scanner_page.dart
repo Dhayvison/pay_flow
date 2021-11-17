@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pay_flow/shared/themes/app_colors.dart';
 import 'package:pay_flow/shared/themes/app_text_styles.dart';
+import 'package:pay_flow/shared/widgets/botton_sheet/bottom_sheet_widget.dart';
+import 'package:pay_flow/shared/widgets/double_button_group.dart/double_button_group.dart';
 import 'package:pay_flow/shared/widgets/label_button/label_button.dart';
 
 class BarcodeScannerPage extends StatefulWidget {
@@ -38,27 +40,24 @@ class _BarcodeScannerPageState extends State<BarcodeScannerPage> {
                     color: Colors.transparent,
                   )),
               Expanded(
-                  child: Container(color: const Color.fromRGBO(0, 0, 0, 0.6)))
-            ],
-          ),
-          bottomNavigationBar: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              LabelButton(
-                label: "Inserir código do boleto",
-                onPressed: () {},
-              ),
-              Container(
-                height: 56,
-                color: AppColors.stroke,
-                width: 1,
-              ),
-              LabelButton(
-                label: "Adicionar da galeria",
-                onPressed: () {},
+                  child: Container(color: const Color.fromRGBO(0, 0, 0, 0.6))),
+              SizedBox(
+                height: 50,
+                child: DoubleButtonGroup(
+                  leftButton: LabelButton(
+                    label: "Inserir código do boleto",
+                    onPressed: () {},
+                  ),
+                  rightButton: LabelButton(
+                    label: "Adicionar da galeria",
+                    onPressed: () {},
+                    style: AppTextStyles.buttonPrimary,
+                  ),
+                ),
               ),
             ],
           ),
+          bottomSheet: const BottomSheetWidget(),
         ),
       ),
     );
